@@ -12,4 +12,10 @@ describe User do
     expect(authenticated_user).to eq user
   end
 
+  it "returns error when password is wrong" do
+    expect(User.authenticate(user.email, "456")).to be_nil
+  end
+
+
+
 end
