@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'User sign in' do
+feature 'User sign up' do
 
   scenario 'I can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
@@ -8,14 +8,6 @@ feature 'User sign in' do
     expect(User.first.email).to eq('michal@gmail.com')
   end
 
-  def sign_in_fail
-    visit '/users/new'
-    expect(page.status_code).to eq 200
-    fill_in :email, with: 'michal@gmail.com'
-    fill_in :password, with: 'password'
-    fill_in :password_confirmation, with: 'pazzword'
-    click_button 'Register'
-  end
 
   scenario 'password must match' do
     sign_in_fail
