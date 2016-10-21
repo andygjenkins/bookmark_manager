@@ -10,12 +10,12 @@ feature 'User can sign in' do
 
   scenario 'with correct email and password' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content("Hello #{user.email}")
+    expect(page).to have_content("Welcome, #{user.email}")
   end
 
   scenario 'with incorrect email and password' do
      sign_in(email: user.email, password: "wrong")
-     expect(page).to have_content("The email or password is incorrect")
+     expect(page).to have_content("Email or password is incorrect")
    end
 
 

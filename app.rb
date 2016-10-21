@@ -64,11 +64,11 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
-  get 'sessions/new' do
+  get '/sessions/new' do
     erb :'sessions/new'
   end
 
-  post 'sessions' do
+  post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
